@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Scanner</title>
+</head>
+<body>
+    <h1>Security Scanner</h1>
+    <input type="text" id="url" placeholder="Enter URL">
+    <button onclick="scanForXSS()">Scan for XSS</button>
+    <button onclick="scanForSQLInjection()">Scan for SQL Injection</button>
+    <button onclick="scanForCSRF()">Scan for CSRF</button>
+    <div id="results"></div>
+    <script>
+        async function scanForXSS() {
+            const url = document.getElementById('url').value;
+            const response = await fetch('/scan/xss', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+            const data = await response.json();
+            document.getElementById('results').innerText = `XSS Vulnerable: ${data.xss_vulnerable}`;
+        }
+
+        async function scanForSQLInjection() {
+            const url = document.getElementById('url').value;
+            const response = await fetch('/scan/sql_injection', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+            const data = await response.json();
+            document.getElementById('results').innerText = `SQL Injection Vulnerable: ${data.sql_injection_vulnerable}`;
+        }
+
+        async function scanForCSRF() {
+            const url = document.getElementById('url').value;
+            const response = await fetch('/scan/csrf', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+            const data = await response.json();
+            document.getElementById('results').innerText = `CSRF Protected: ${data.csrf_protected}`;
+        }
+    </script>
+</body>
+</html>
