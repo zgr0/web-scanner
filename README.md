@@ -1,57 +1,57 @@
 # Web Scanner
 
-Web Scanner, çeşitli güvenlik açıklarını taramak için geliştirilmiş basit bir web uygulamasıdır. Uygulama, XSS, SQL Injection ve CSRF açıklarını kontrol etmek için temel fonksiyonellik sağlar.
+Web Scanner is a simple web application developed to scan for various security vulnerabilities. The application provides basic functionality to check for XSS, SQL Injection, and CSRF vulnerabilities.
 
-## Özellikler
+## Features
 
-- **XSS Taraması**: Çeşitli XSS payload'ları kullanarak URL'yi tarar.
-- **SQL Injection Taraması**: Yaygın SQL Injection payload'ları kullanarak URL'yi tarar.
-- **CSRF Taraması**: CSRF korumasının var olup olmadığını kontrol eder.
+- **XSS Scanning**: Scans the URL using various XSS payloads.
+- **SQL Injection Scanning**: Scans the URL using common SQL Injection payloads.
+- **CSRF Scanning**: Checks whether CSRF protection is present.
 
-## Kurulum
+## Installation
 
-Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin.
+Follow the steps below to run the project on your local machine.
 
-### Gereksinimler
+### Requirements
 
 - Python 3.x
 - Flask
 - Flask-SQLAlchemy
-- Python Requests
+- Python Requests Library
 
-### Adımlar
+### Steps
 
-1. Bu depozoyu klonlayın:
+1. Clone this repository:
 
     ```bash
     git clone https://github.com/zgr0/web-scanner.git
     cd web-scanner
     ```
 
-2. Sanal bir ortam oluşturun ve etkinleştirin:
+2. Create and activate a virtual environment:
 
     ```bash
     python -m venv venv
-    source venv/bin/activate  # Windows için: venv\Scripts\activate
+    source venv/bin/activate  # For Windows: venv\Scripts\activate
     ```
 
-3. Gerekli kütüphaneleri yükleyin:
+3. Install the required libraries:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Veritabanını oluşturun ve uygulamayı başlatın:
+4. Create the database and start the application:
 
     ```bash
     python app.py
     ```
 
-5. Tarayıcınızda `http://127.0.0.1:5000` adresine gidin.
+5. Open your browser and navigate to `http://127.0.0.1:5000`.
 
-## Kullanım
+## Usage
 
-1. Web tarayıcınızı açın ve `http://127.0.0.1:5000` adresine gidin.
-2. Taramak istediğiniz URL'yi girin.
-3. İlgili güvenlik açığını taramak için butona tıklayın (XSS, SQL Injection veya CSRF).
-4. Sonuçlar ekranda görüntülenecektir.
+1. Open your web browser and navigate to `http://127.0.0.1:5000`.
+2. Enter the URL you want to scan.
+3. Click the button for the vulnerability you want to scan for (XSS, SQL Injection, or CSRF).
+4. The results will be displayed on the screen.
